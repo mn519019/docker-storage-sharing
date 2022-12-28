@@ -11,7 +11,7 @@
 - The host will have a dedicated volume storage that can be shared with other containers.
 
 ## How it works? 
-- The first conatiner (df) will push the "df -h /" info to the volume.
+- The first conatiner (df) will push the "df -h /" info to the volume's web document (index.html).
 - The second container (webserver) will show the contents from the storage and display on the webserver. 
 - Think as a very simple Micro Service architecture in a nutshell.
 
