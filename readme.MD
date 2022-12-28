@@ -15,8 +15,6 @@
 - The second container (webserver) will show the contents from the storage and display on the webserver. 
 - Think as a very simple Micro Service architecture in a nutshell.
 
-## Referecne
-- Please look for an "Architecture.png" for better understanding.
 ## Instructions
 ```
 ## Build Docker files for both containers 
@@ -50,3 +48,7 @@ $ curl 4.204.222.84
 Filesystem      Size  Used Avail Use% Mounted on
 overlay          29G  4.9G   25G  17% /
 ```
+
+## Referecne
+- Please look for an "Architecture.png" for better understanding.
+- https://www.youtube.com/@ttabae-learn4274
