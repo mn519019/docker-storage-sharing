@@ -24,11 +24,11 @@ $ docker build -t mn519019/df:latest .
 ## Check the created images from the build process
 $ docker images | grep -i mn519019
 mn519019/df          latest    b5d0325cab8c   54 minutes ago   63.1MB < ------
-mn519019/httpd       latest    73c10eb9266e   7 days ago       145MB  < ------
+mn519019/webserver       latest    73c10eb9266e   7 days ago       145MB  < ------
 
 ## Run containers using -v option 
 ## The web server should only have a "read-only" option to minimize security breaches
-$ docker run -d --name web -p 80:80 -v /webdata:/var/www/html:ro mn519019/httpd
+$ docker run -d --name web -p 80:80 -v /webdata:/usr/share/nginx/html:ro mn519019/webserver
 $ docker run -d -v /webdata:/webdata --name df mn519019/df:latest
 
 ```
@@ -37,9 +37,9 @@ $ docker run -d -v /webdata:/webdata --name df mn519019/df:latest
 ```
 # Expected output of the running containers 
 $ docker ps 
-CONTAINER ID   IMAGE                COMMAND                  CREATED          STATUS          PORTS                               NAMES
-2c29f42845e3   mn519019/df:latest   "/bin/df.sh"             36 minutes ago   Up 36 minutes                                       df
-8ea10e8ba4de   nginx:1.14           "nginx -g 'daemon of…"   47 minutes ago   Up 47 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   web
+CONTAINER ID   IMAGE                   COMMAND                  CREATED          STATUS          PORTS                               NAMES
+2c29f42845e3   mn519019/df:latest      "/bin/df.sh"               36 minutes ago   Up 36 minutes                                       df
+8ea10e8ba4de   mn519019/webserver:latest "nginx -g 'daemon of…"   47 minutes ago   Up 47 minutes   0.0.0.0:80->80/tcp, :::80->80/tcp   web
 ```
 
 ```
